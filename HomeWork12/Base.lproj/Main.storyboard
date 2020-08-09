@@ -1,24 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dkv-lF-eCz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Alamofire-->
+        <scene sceneID="l2L-MN-544">
+            <objects>
+                <viewController id="AA7-mD-NNG" customClass="ViewControllerAlamofire" customModule="HomeWork12" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="93h-fa-hXv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hy0-2O-mfR">
+                                <rect key="frame" x="20" y="44" width="374" height="109"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aog-C6-zgX">
+                                <rect key="frame" x="20" y="161" width="374" height="652"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" rowHeight="100" id="t8G-Nh-g6Z" customClass="TableViewCell" customModule="HomeWork12" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t8G-Nh-g6Z" id="Zg2-Zx-CMz">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="aog-C6-zgX" firstAttribute="top" secondItem="hy0-2O-mfR" secondAttribute="bottom" constant="8" id="9D9-Zl-1ga"/>
+                            <constraint firstItem="aog-C6-zgX" firstAttribute="bottom" secondItem="YnW-qd-d52" secondAttribute="bottom" id="CUR-kE-fnb"/>
+                            <constraint firstItem="hy0-2O-mfR" firstAttribute="top" secondItem="YnW-qd-d52" secondAttribute="top" id="E2Y-hJ-yaS"/>
+                            <constraint firstItem="YnW-qd-d52" firstAttribute="trailing" secondItem="aog-C6-zgX" secondAttribute="trailing" constant="20" id="GQR-Y5-r6p"/>
+                            <constraint firstItem="hy0-2O-mfR" firstAttribute="height" secondItem="93h-fa-hXv" secondAttribute="height" multiplier="0.121652" id="Hlb-Lc-va9"/>
+                            <constraint firstItem="aog-C6-zgX" firstAttribute="leading" secondItem="YnW-qd-d52" secondAttribute="leading" constant="20" id="I3R-tA-wdv"/>
+                            <constraint firstItem="hy0-2O-mfR" firstAttribute="leading" secondItem="YnW-qd-d52" secondAttribute="leading" constant="20" id="U1w-cK-MrH"/>
+                            <constraint firstItem="aog-C6-zgX" firstAttribute="top" secondItem="hy0-2O-mfR" secondAttribute="bottom" constant="8" id="kC6-Aj-pLm"/>
+                            <constraint firstItem="YnW-qd-d52" firstAttribute="trailing" secondItem="hy0-2O-mfR" secondAttribute="trailing" constant="20" id="vbf-za-SYM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YnW-qd-d52"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Alamofire" id="wwO-2a-i1y"/>
+                    <connections>
+                        <outlet property="tableView" destination="aog-C6-zgX" id="lx9-Ms-20f"/>
+                        <outlet property="weatherContainerView" destination="hy0-2O-mfR" id="IKU-4E-Xal"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="31n-AB-yrs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="-546"/>
+        </scene>
+        <!--Обычный-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HomeWork12" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyi-0r-oZh">
+                                <rect key="frame" x="20" y="44" width="374" height="109"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HeK-Gq-Qtt">
+                                <rect key="frame" x="20" y="161" width="374" height="652"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" rowHeight="100" id="cJn-gG-sB3" customClass="TableViewCell" customModule="HomeWork12" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cJn-gG-sB3" id="6wf-RN-2jk">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HeK-Gq-Qtt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="DWA-Ns-Jx2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HeK-Gq-Qtt" secondAttribute="trailing" constant="20" id="EGG-hB-jWd"/>
+                            <constraint firstItem="pyi-0r-oZh" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.121652" id="Ejc-Lq-szY"/>
+                            <constraint firstItem="HeK-Gq-Qtt" firstAttribute="top" secondItem="pyi-0r-oZh" secondAttribute="bottom" constant="8" id="JZk-5F-x26"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pyi-0r-oZh" secondAttribute="trailing" constant="20" id="P1i-Qo-5GB"/>
+                            <constraint firstItem="pyi-0r-oZh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZsM-QV-ThM"/>
+                            <constraint firstItem="pyi-0r-oZh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="k43-9i-Xz6"/>
+                            <constraint firstItem="HeK-Gq-Qtt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ofT-Qi-jJs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Обычный" id="oNz-7x-Ia0"/>
+                    <connections>
+                        <outlet property="tableView" destination="HeK-Gq-Qtt" id="Wus-49-GaN"/>
+                        <outlet property="weatherContainerView" destination="pyi-0r-oZh" id="bHC-iC-Com"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="FKo-Js-Ma4">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dkv-lF-eCz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="shg-0o-HkG">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="nVO-W7-eHX"/>
+                        <segue destination="AA7-mD-NNG" kind="relationship" relationship="viewControllers" id="EKg-1E-P0P"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HgE-Qu-ZSU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>

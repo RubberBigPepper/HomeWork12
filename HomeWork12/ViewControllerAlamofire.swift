@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource  {
+class ViewControllerAlamofire: UIViewController, UITableViewDataSource  {
     
     @IBOutlet weak var weatherContainerView: UIView!
     
@@ -45,13 +45,13 @@ class ViewController: UIViewController, UITableViewDataSource  {
 
 
     private func getCurrentWeather(){
-        WeatherLoader().loadWeatherDay {weather in
+        WeatherLoader().loadWeatherDayAlamofire {weather in
             self.weatherCurrent=weather
         }
     }
     
     private func getWeekWeather(){
-        WeatherLoader().loadWeatherWeek {weather in
+        WeatherLoader().loadWeatherWeekAlamofire {weather in
             self.weatherArray=weather
         }
     }

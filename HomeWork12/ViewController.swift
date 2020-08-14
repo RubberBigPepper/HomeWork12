@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController, UITableViewDataSource  {
     
@@ -15,7 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource  {
     private var weatherCellView : WeatherCellView?
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     var weatherArray : [WeatherData] = []{
         didSet{//перегрузим данные таблицы
             self.tableView.reloadData()
@@ -39,8 +40,15 @@ class ViewController: UIViewController, UITableViewDataSource  {
         weatherCellView = WeatherCellView.loadViewFromNib()//привяжем наш XIB ко вью в сториборде
         weatherCellView?.frame=weatherContainerView.bounds
         weatherContainerView.addSubview(weatherCellView!)
+        ReadFromRealm()
         getCurrentWeather()
         getWeekWeather()
+    }
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        SaveToRealm() //сохраним погоду
     }
 
 
@@ -69,6 +77,24 @@ class ViewController: UIViewController, UITableViewDataSource  {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! TableViewCell
         cell.setWeather(self.weatherArray[indexPath.row])
         return cell
+    }
+    
+    public func SaveToRealm(){
+        let realm = try! Realm()
+        try! realm.write{
+            for weather in weatherArray{
+                realm.add(weather)
+            }
+        }
+    }
+    
+    public func ReadFromRealm(){
+        let realm = try! Realm()
+        weatherArray.removeAll()
+        let weatherList=realm.objects(WeatherData.self)//читаем объекты
+        for weather in weatherList{
+            self.weatherArray.append(weather)
+        }
     }
     
 }

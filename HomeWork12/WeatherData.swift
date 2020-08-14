@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import RealmSwift
 
-class WeatherData {//класс погоды
-    let temperature : Double//температура
-    let humidity : Double //влажность
-    let pressure : Double //давление
-    let windSpeed : Double //Скорость ветра
-    let windDegree : Double //направление ветра
-    let weather : String //погода
-    let description : String //описание погоды
-    let icon : String //иконка погоды
+class WeatherData: Object {//класс погоды
+    @objc dynamic var temperature : Double = 0.0//температура
+    @objc dynamic var humidity : Double = 0.0 //влажность
+    @objc dynamic var pressure : Double = 0.0 //давление
+    @objc dynamic var windSpeed : Double = 0.0 //Скорость ветра
+    @objc dynamic var windDegree : Double = 0.0 //направление ветра
+    @objc dynamic var weather : String = ""//погода
+    @objc dynamic var descriptionWheather : String = "" //описание погоды
+    @objc dynamic var icon : String = "" //иконка погоды
     
     init?(_ data: NSDictionary){
         guard let weather = data["weather"] as? [NSDictionary] // Dictionary<String, Any> вот тут похоже может вылезти много ошибок в будущем
@@ -29,7 +30,7 @@ class WeatherData {//класс погоды
         
         let weatherOne = weather[0]
         self.weather = weatherOne["main"] as! String //слишком лихо сразу в строку, а если не получится? либо делать через guard?
-        self.description = weatherOne["description"] as! String
+        self.descriptionWheather = weatherOne["description"] as! String
         self.icon = weatherOne["icon"] as! String
 
         if main != nil {//текущий прогноз
@@ -52,5 +53,9 @@ class WeatherData {//класс погоды
             self.windSpeed = data["speed"] as! Double
             self.windDegree = data["deg"] as! Double
         }
+    }
+    
+    required init() {
+        //fatalError("init() has not been implemented")
     }
 }
